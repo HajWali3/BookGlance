@@ -1,0 +1,23 @@
+<!-- <% layout("/layouts/boilerplate.ejs") %> -->
+
+<body>
+  <h3>All Books</h3>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xsm-1">
+    <% for ( let book of allBooks) { %>
+      <a href="/listings/show/<%= book._id  %>" class="listing-link">
+        <div class="card col">
+          <img src="<%= book.image %>" class="card-img-top" style="height: 20rem" alt="img" />
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+              <b>
+                <%= book.title %> <br />
+              </b>
+              <%= book.author %> <br />
+            </p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+  </div>
+</body>

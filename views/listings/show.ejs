@@ -1,0 +1,51 @@
+<!-- <% layout("/layouts/boilerplate.ejs") %> -->
+<div class="row">
+  <div class="col-8 offset-3">
+    <h3>Book Details</h3>
+  </div>
+  <div class="card col-6 offset-3 show-card">
+    <img src="<%= book.image %>" class="card-img-top show-img" alt="omg" />
+    <div class="card-body">
+      <p class="card-text">
+        <b>
+          <%= book.title %>
+        </b>
+        <br />
+        <%= book.description %> <br />
+          <%= book.author %> <br />
+            <h5 class="col-6 offset-1">Chapters</h5>
+            <% for ( let chapt of chapter) { %>
+              <a href="/listings/summary/<%= chapt.id  %>" class="no-underline">
+                <%= chapt.chapter_number %> - <%= chapt.title %>
+              </a>
+              <!-- <form action="/listings/chapter/<%= chapt._id %>?_method=DELETE" method="post">
+                <button
+                  class="px-1 py-0 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75">
+                  Delete</button>
+              </form> -->
+              <br>
+              <% } %>
+      </p>
+    </div>
+  </div>
+  <h1></h1>
+  <div class="flex">
+    <form method="get" action="/listings/update/<%= book._id  %>" class=" col-2 offset-3 ">
+      <button
+        class="px-2 py-2 bg-black text-white font-semibold rounded-lg shadow-md border-2 border-transparent hover:border-white transition">
+        Add Chapters
+      </button>
+    </form>
+
+    <form method="post" action="/listings/<%= book._id  %>?_method=DELETE" class="  offset-1">
+      <!-- <button
+        class="px-4 py-2 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75">
+        Delete
+      </button> -->
+
+      <br>
+      <br>
+    </form>
+  </div>
+</div>
+</div>
